@@ -1,0 +1,87 @@
+newmtl Model001_Material001
+map_Kd Batmobile_Jokerfied_Wheel_V2_D.png
+map_bump Batmobile_V3_TEXTURES_Wheel_V2_N.png
+
+newmtl Model001_Material002
+map_Kd glass.png
+map_bump Batmobile_V3_Glass_N.png
+
+newmtl Model001_Material003
+map_Kd Batmobile_Jokerfied_Body_D.png
+map_bump Batmobile_V3_Body_N.png
+
+newmtl Model001_Material004
+map_Kd Batmobile_Jokerfied_WheelArch_D.png
+map_bump Batmobile_V3_WheelArch_N.png
+
+newmtl Model001_Material005
+map_Kd Batmobile_V3_Undercarriage_Grid_A.png
+map_bump Batmobile_V3_Undercarriage_N.png
+
+newmtl Model001_Material006
+map_Kd Batmobile_V3_Wheel_Lights_D.png
+map_bump Batmobile_V3_Wheel_Lights_N.png
+
+newmtl Model001_Material007
+map_Kd Batmobile_V3_Undercarriage_Grid_A.png
+map_bump Batmobile_V3_Undercarriage_N.png
+
+newmtl Model001_Material008
+map_Kd Batmobile_V3_Weaponry_Turret_V2_D.png
+map_bump Batmobile_V3_Weaponry_Turret_V2_N.png
+
+newmtl Model001_Material009
+map_Kd Batmobile_V3_Weaponry_Turret_V2_D.png
+map_bump Batmobile_V3_Weaponry_Turret_V2_N.png
+
+newmtl Model001_Material010
+map_Kd Batmobile_V3_Weaponry_Turret_V2_D.png
+map_bump Batmobile_V3_Weaponry_Turret_V2_N.png
+
+newmtl Model001_Material011
+map_Kd Batmobile_V3_Weaponry_Turret_V2_D.png
+map_bump Batmobile_V3_Weaponry_Turret_V2_N.png
+
+newmtl Model001_Material012
+map_Kd Batmobile_V3_Weaponry_Turret_V2_D.png
+map_bump Batmobile_V3_Weaponry_Turret_V2_N.png
+
+newmtl Model001_Material013
+map_Kd Batmobile_V3_Body_Decals_D.png
+
+newmtl Model001_Material014
+map_Kd Batmobile_Jokerfied_Tyre_V2_D.png
+map_bump Batmobile_V3_TEXTURES_Tyre_V2_N.png
+
+newmtl Model001_Material015
+map_Kd Batmobile_V3_Int_Cockpit_D.png
+map_bump Batmobile_V3_Int_Cockpit_N.png
+
+newmtl Model001_Material016
+map_Kd Batmobile_V3_Int_Cockpit_D.png
+map_bump Batmobile_V3_Int_Cockpit_N.png
+
+newmtl Model001_Material017
+map_Kd Batmobile_V3_BRAKE_DISC_D.png
+map_bump Batmobile_V3_BRAKE_DISC_N.png
+
+newmtl Model001_Material018
+map_Kd Batmobile_V3_Missile_Upgrade_D.png
+map_bump Batmobile_V3_Missile_Upgrade_N.png
+
+newmtl Model001_Material019
+map_Kd Batmobile_Jokerfied_GlovesAndBoots_D.png
+map_bump Batmobile_Jokerfied_GlovesAndBoots_N.png
+
+newmtl Model001_Material020
+map_Kd Joker_BM3_Trousers_D.png
+map_bump Joker_BM3_Trousers_N.png
+
+newmtl Model001_Material021
+map_Kd Game_Cameo_Squirting_FLOWER_D.png
+map_bump Game_Cameo_Squirting_FLOWER_N.png
+
+newmtl Model001_Material022
+map_Kd Joker_BM3_V2_Teeth2_D.png
+map_bump Joker_BM3_V2_Teeth2_N.png
+
