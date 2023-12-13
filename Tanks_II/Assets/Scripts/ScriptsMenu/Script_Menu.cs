@@ -34,6 +34,6 @@ public class Script_Menu : MonoBehaviour
     }
     public void cambiarVolumenFX(float v)
     {
-        mixer.SetFloat("volMusica", v);
+        mixer.SetFloat("volMusic", v);
     }
 }
