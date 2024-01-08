@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44504857, g: 0.4946407, b: 0.57373834, a: 1}
+  m_IndirectSpecularColor: {r: 0.44504905, g: 0.49464136, b: 0.5737399, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -124,7 +124,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 152f06369ff3e7546bd8f250488d3265, type: 2}
 --- !u!1001 &28730084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2341,7 +2341,7 @@ PrefabInstance:
     - target: {fileID: 4155046195482119553, guid: 05868fab2d415b84abdc41e4d376b804,
         type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4155046195482119553, guid: 05868fab2d415b84abdc41e4d376b804,
         type: 3}
@@ -3800,7 +3800,7 @@ PrefabInstance:
     - target: {fileID: 4155046195482119553, guid: 05868fab2d415b84abdc41e4d376b804,
         type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 4155046195482119553, guid: 05868fab2d415b84abdc41e4d376b804,
         type: 3}
@@ -11747,7 +11747,9 @@ MonoBehaviour:
   m_EndDelay: 3
   m_CameraControl: {fileID: 656929728}
   m_MessageText: {fileID: 1116722520}
-  m_TankPrefab: {fileID: 159488, guid: 7014e587a008c8a4e92cdcb1eb6542a4, type: 3}
+  m_TankPrefab: {fileID: 159488, guid: 63b89801c6625f44aa041f94aa063900, type: 3}
+  tankEnemyPrefab: {fileID: 159488, guid: 53dc4e0d28ce69a43b0830c3b7cef745, type: 3}
+  m_positionEnemy: {fileID: 1461892215}
   m_Tanks:
   - m_PlayerColor: {r: 0.30980393, g: 0.54509807, b: 0.8705883, a: 0}
     m_SpawnPoint: {fileID: 1140722834}
@@ -11755,12 +11757,9 @@ MonoBehaviour:
     m_ColoredPlayerText: 
     m_Instance: {fileID: 0}
     m_Wins: 0
-  - m_PlayerColor: {r: 0.8235295, g: 0.27058825, b: 0.27058825, a: 0}
-    m_SpawnPoint: {fileID: 1461892215}
-    m_PlayerNumber: 0
-    m_ColoredPlayerText: 
+  cloneEnemy:
     m_Instance: {fileID: 0}
-    m_Wins: 0
+    m_positionEnemy: {fileID: 1461892215}
 --- !u!4 &1476328587
 Transform:
   m_ObjectHideFlags: 0
@@ -14733,7 +14732,7 @@ Transform:
   - {fileID: 1429472366}
   - {fileID: 514066966}
   m_Father: {fileID: 1223637114}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1814149846
 PrefabInstance:
@@ -17041,7 +17040,7 @@ Transform:
   - {fileID: 927752016}
   - {fileID: 2147467126}
   m_Father: {fileID: 1223637114}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2109821533
 PrefabInstance:
@@ -17227,12 +17226,12 @@ PrefabInstance:
     - target: {fileID: 633367807437549044, guid: 74a7d738e1afc8a469eed7be204edce2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1060661870285414258, guid: 74a7d738e1afc8a469eed7be204edce2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4873293358384309391, guid: 74a7d738e1afc8a469eed7be204edce2,
         type: 3}
@@ -17304,9 +17303,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5642516794176801269, guid: 74a7d738e1afc8a469eed7be204edce2,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5642516794176807993, guid: 74a7d738e1afc8a469eed7be204edce2,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642516794176808441, guid: 74a7d738e1afc8a469eed7be204edce2,
+        type: 3}
+      propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5642516794176819507, guid: 74a7d738e1afc8a469eed7be204edce2,
@@ -17319,9 +17328,19 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5642516794176826839, guid: 74a7d738e1afc8a469eed7be204edce2,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5642516794176829603, guid: 74a7d738e1afc8a469eed7be204edce2,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642516794176834663, guid: 74a7d738e1afc8a469eed7be204edce2,
+        type: 3}
+      propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5642516794176836737, guid: 74a7d738e1afc8a469eed7be204edce2,
@@ -17367,7 +17386,7 @@ PrefabInstance:
     - target: {fileID: 6535384756060677635, guid: 74a7d738e1afc8a469eed7be204edce2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74a7d738e1afc8a469eed7be204edce2, type: 3}

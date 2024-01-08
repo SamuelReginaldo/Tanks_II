@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -11,7 +12,10 @@ public class GameManager : MonoBehaviour
     public CameraControl m_CameraControl;       // Reference to the CameraControl script for control during different phases.
     public Text m_MessageText;                  // Reference to the overlay Text to display winning text, etc.
     public GameObject m_TankPrefab;             // Reference to the prefab the players will control.
+    public GameObject tankEnemyPrefab;
+    public Transform m_positionEnemy;
     public TankManager[] m_Tanks;               // A collection of managers for enabling and disabling different aspects of the tanks.
+    public EnemyManager cloneEnemy;
 
 
     private int m_RoundNumber;                  // Which round the game is currently on.
@@ -37,29 +41,25 @@ public class GameManager : MonoBehaviour
 
     private void SpawnAllTanks()
     {
-        // For all the tanks...
-        for (int i = 0; i < m_Tanks.Length; i++)
-        {
-            // ... create them, set their player number and references needed for control.
-            m_Tanks[i].m_Instance =
-                Instantiate(m_TankPrefab, m_Tanks[i].m_SpawnPoint.position, m_Tanks[i].m_SpawnPoint.rotation) as GameObject;
-            m_Tanks[i].m_PlayerNumber = i + 1;
-            m_Tanks[i].Setup();
-        }
+        // ... create them, set their player number and references needed for control.
+        m_Tanks[0].m_Instance =
+            Instantiate(m_TankPrefab, m_Tanks[0].m_SpawnPoint.position, m_Tanks[0].m_SpawnPoint.rotation) as GameObject;
+        m_Tanks[0].m_PlayerNumber = 1;
+        m_Tanks[0].Setup();
+
+        cloneEnemy.m_Instance = Instantiate(tankEnemyPrefab, m_positionEnemy.position, m_positionEnemy.rotation) as GameObject;
+        cloneEnemy.SetUpEnemy();
     }
 
 
     private void SetCameraTargets()
     {
         // Create a collection of transforms the same size as the number of tanks.
-        Transform[] targets = new Transform[m_Tanks.Length];
+        Transform[] targets = new Transform[2];
 
         // For each of these transforms...
-        for (int i = 0; i < targets.Length; i++)
-        {
-            // ... set it to the appropriate tank transform.
-            targets[i] = m_Tanks[i].m_Instance.transform;
-        }
+        targets[0] = m_Tanks[0].m_Instance.transform;
+        targets[1] = cloneEnemy.m_Instance.transform;
 
         // These are the targets the camera should follow.
         m_CameraControl.m_Targets = targets;
@@ -81,8 +81,10 @@ public class GameManager : MonoBehaviour
         // This code is not run until 'RoundEnding' has finished.  At which point, check if a game winner has been found.
         if (m_GameWinner != null)
         {
-            // If there is a game winner, restart the level.
-            Application.LoadLevel(Application.loadedLevel);
+            
+            SceneManager.LoadScene("Menu");
+        }else if(m_RoundWinner == null){
+            SceneManager.LoadScene("Menu");
         }
         else
         {
@@ -98,6 +100,7 @@ public class GameManager : MonoBehaviour
         // As soon as the round starts reset the tanks and make sure they can't move.
         ResetAllTanks();
         DisableTankControl();
+        DisableEnemyControl();
 
         // Snap the camera's zoom and position to something appropriate for the reset tanks.
         m_CameraControl.SetStartPositionAndSize();
@@ -115,6 +118,7 @@ public class GameManager : MonoBehaviour
     {
         // As soon as the round begins playing let the players control the tanks.
         EnableTankControl();
+        EnableEnemyControl();
 
         // Clear the text from the screen.
         m_MessageText.text = string.Empty;
@@ -138,10 +142,10 @@ public class GameManager : MonoBehaviour
 
         // See if there is a winner now the round is over.
         m_RoundWinner = GetRoundWinner();
+        if(m_RoundWinner != null)
+        m_RoundWinner.m_Wins++;
 
         // If there is a winner, increment their score.
-        if (m_RoundWinner != null)
-            m_RoundWinner.m_Wins++;
 
         // Now the winner's score has been incremented, see if someone has one the game.
         m_GameWinner = GetGameWinner();
@@ -167,6 +171,9 @@ public class GameManager : MonoBehaviour
             // ... and if they are active, increment the counter.
             if (m_Tanks[i].m_Instance.activeSelf)
                 numTanksLeft++;
+        }
+        if(cloneEnemy.m_Instance.activeSelf){
+            numTanksLeft++;
         }
 
         // If there are one or fewer tanks remaining return true, otherwise return false.
@@ -214,21 +221,23 @@ public class GameManager : MonoBehaviour
         string message = "DRAW!";
 
         // If there is a winner then change the message to reflect that.
-        if (m_RoundWinner != null)
-            message = m_RoundWinner.m_ColoredPlayerText + " WINS THE ROUND!";
+        if (m_RoundWinner != null){
+            message = "YOU WIN THE ROUND!";
 
-        // Add some line breaks after the initial message.
-        message += "\n\n\n\n";
+            // Add some line breaks after the initial message.
+            message += "\n\n\n\n";
 
-        // Go through all the tanks and add each of their scores to the message.
-        for (int i = 0; i < m_Tanks.Length; i++)
-        {
-            message += m_Tanks[i].m_ColoredPlayerText + ": " + m_Tanks[i].m_Wins + " WINS\n";
+            // Go through all the tanks and add each of their scores to the message.
+            message +="WINS: " + m_Tanks[0].m_Wins;
+            
+        }else{
+            message = "YOU LOSE";
         }
+            
 
         // If there is a game winner, change the entire message to reflect that.
         if (m_GameWinner != null)
-            message = m_GameWinner.m_ColoredPlayerText + " WINS THE GAME!";
+            message = "YOU WIN THE GAME!";
 
         return message;
     }
@@ -241,6 +250,7 @@ public class GameManager : MonoBehaviour
         {
             m_Tanks[i].Reset();
         }
+        cloneEnemy.Reset();
     }
 
 
@@ -252,6 +262,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void EnableEnemyControl()
+    {
+        cloneEnemy.EnableControl();
+    }
 
     private void DisableTankControl()
     {
@@ -259,5 +273,10 @@ public class GameManager : MonoBehaviour
         {
             m_Tanks[i].DisableControl();
         }
+    }
+
+    private void DisableEnemyControl()
+    {
+        cloneEnemy.DisableControl();
     }
 }
