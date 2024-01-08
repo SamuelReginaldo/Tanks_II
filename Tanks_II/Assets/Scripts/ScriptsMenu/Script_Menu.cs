@@ -5,6 +5,7 @@ using UnityEngine.Animations;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using System;
 
 public class Script_Menu : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Script_Menu : MonoBehaviour
 
     private void Awake()
     {
+        silenciar.onValueChanged.AddListener(silenciarMetodo);
         volumenMaster.onValueChanged.AddListener(cambiarVolumenMaster);
         volumenFX.onValueChanged.AddListener(cambiarVolumenFX);
     }
@@ -30,10 +32,26 @@ public class Script_Menu : MonoBehaviour
 
     public void cambiarVolumenMaster(float v)
     {
+        Debug.Log(v);
         mixer.SetFloat("volMaster", v);
     }
     public void cambiarVolumenFX(float v)
     {
+        
+        Debug.Log(v);
         mixer.SetFloat("volMusic", v);
+    }
+    public void silenciarMetodo(Boolean silenciar)
+    {
+        Debug.Log(silenciar);
+        if (silenciar)
+        {
+            mixer.SetFloat("volMaster", -80);
+        }
+        else
+        {
+            mixer.SetFloat("volMaster", 0); 
+        }
+
     }
 }
