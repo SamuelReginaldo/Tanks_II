@@ -19,7 +19,7 @@ public class Script_Menu : MonoBehaviour
         volumenFX.onValueChanged.AddListener(cambiarVolumenFX);
     }
     public void EmpezarNivel(string NombreNivel)
-    {
+    {   
         SceneManager.LoadScene(NombreNivel);
     }
     public void Salir()
