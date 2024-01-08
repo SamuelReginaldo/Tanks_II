@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44504905, g: 0.49464136, b: 0.5737399, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -124,7 +124,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 91bbaa97f2ceba44087cf332657b6c27, type: 2}
 --- !u!1001 &505526994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,8 +132,64 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 101518, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 115872, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 117692, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125100, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 129414, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137666, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 143522, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 146860, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 159038, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 165640, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 167976, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 171356, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 173254, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 180058, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 187520, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
+      propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 488946, guid: 1cd1bdb2203012a40ab12a0d2fd7aa88, type: 3}
@@ -690,6 +746,8 @@ MonoBehaviour:
   m_CameraControl: {fileID: 656929728}
   m_MessageText: {fileID: 1116722520}
   m_TankPrefab: {fileID: 159488, guid: 63b89801c6625f44aa041f94aa063900, type: 3}
+  tankEnemyPrefab: {fileID: 159488, guid: 53dc4e0d28ce69a43b0830c3b7cef745, type: 3}
+  m_positionEnemy: {fileID: 1461892215}
   m_Tanks:
   - m_PlayerColor: {r: 0.30980393, g: 0.54509807, b: 0.8705883, a: 0}
     m_SpawnPoint: {fileID: 1140722834}
@@ -697,12 +755,9 @@ MonoBehaviour:
     m_ColoredPlayerText: 
     m_Instance: {fileID: 0}
     m_Wins: 0
-  - m_PlayerColor: {r: 0.8235295, g: 0.27058825, b: 0.27058825, a: 0}
-    m_SpawnPoint: {fileID: 1461892215}
-    m_PlayerNumber: 0
-    m_ColoredPlayerText: 
+  cloneEnemy:
     m_Instance: {fileID: 0}
-    m_Wins: 0
+    m_positionEnemy: {fileID: 1461892215}
 --- !u!4 &1476328587
 Transform:
   m_ObjectHideFlags: 0

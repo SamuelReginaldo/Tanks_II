@@ -692,12 +692,13 @@ GameObject:
   - component: {fileID: 6566410}
   - component: {fileID: 8253464}
   - component: {fileID: 8242282}
-  - component: {fileID: 11420446}
   - component: {fileID: 11417078}
-  - component: {fileID: 11417496}
+  - component: {fileID: -3780908974035615107}
+  - component: {fileID: -113259275596197641}
+  - component: {fileID: 7676155379777808188}
   m_Layer: 9
-  m_Name: Tank
-  m_TagString: Player
+  m_Name: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -945,25 +946,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &11420446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29af3199e11b72e47b41ff380db540fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerNumber: 1
-  m_Speed: 12
-  m_TurnSpeed: 180
-  m_MovementAudio: {fileID: 8253464}
-  m_EngineIdling: {fileID: 8300000, guid: 4932ab25b84dd7649b80af68a9660ddc, type: 3}
-  m_EngineDriving: {fileID: 8300000, guid: d7ca9fb5aa30155449192b23d7fb3336, type: 3}
-  m_PitchRange: 0.2
 --- !u!114 &11417078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,7 +964,7 @@ MonoBehaviour:
   m_FullHealthColor: {r: 0, g: 1, b: 0, a: 1}
   m_ZeroHealthColor: {r: 1, g: 0, b: 0, a: 1}
   m_ExplosionPrefab: {fileID: 151086, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
---- !u!114 &11417496
+--- !u!114 &-3780908974035615107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -991,19 +973,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 159488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b38fa3f5188f6419ab17bc1669c18c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ce8fe0653f051f45bd7566fefd38a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &-113259275596197641
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159488}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &7676155379777808188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f7c881b1db36b4a84883923698b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerNumber: 1
   m_Shell: {fileID: 5474262, guid: 3fe0638d19a65454da3f5af11ee798ea, type: 3}
-  m_FireTransform: {fileID: 413676}
-  m_AimSlider: {fileID: 11488944}
-  m_ShootingAudio: {fileID: 8242282}
+  m_FireTransform: {fileID: 471248}
+  m_ShootingAudio: {fileID: 8253464}
   m_ChargingClip: {fileID: 8300000, guid: c17f124fcdc0f5446a72f793898bd74b, type: 3}
   m_FireClip: {fileID: 8300000, guid: 672a9941361ad494a99fba36759eca80, type: 3}
-  m_MinLaunchForce: 15
-  m_MaxLaunchForce: 30
-  m_MaxChargeTime: 0.75
+  m_ChargeSpeed: 30
+  timeAttack: 1
 --- !u!1 &163644
 GameObject:
   m_ObjectHideFlags: 0
